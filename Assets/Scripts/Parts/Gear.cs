@@ -88,8 +88,12 @@ public class Gear : PoweredObject, IBreakable
         {
             //Turn off the gear
             gameObject.SetActive(false);
-            //Spawn a broken version
-            Instantiate(brokenGear, transform.position, transform.rotation);
+
+            if (brokenGear != null)
+            {
+                //Spawn a broken version
+                Instantiate(brokenGear, transform.position, transform.rotation);
+            }
         }
     }
 }
