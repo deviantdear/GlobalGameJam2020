@@ -57,10 +57,39 @@ public class Launcher : MonoBehaviour
         triggerControl.onButtonDown.AddListener(Trigger);
     }
 
+    private void Update()
+    {
+        tilt.Rotate(Vector3.right, upRotationControl.Rotation);
+    }
+
     /// <summary>
     /// Triggers the launcher
     /// </summary>
     public void Trigger()
+    {
+
+    }
+
+    /// <summary>
+    /// Unloads the launcher
+    /// </summary>
+    public void Unload()
+    {
+        
+    }
+
+    /// <summary>
+    /// Reloads the launcher
+    /// </summary>
+    public void Reload()
+    {
+
+    }
+
+    /// <summary>
+    /// Cancels the launcher
+    /// </summary>
+    public void Cancel()
     {
 
     }
