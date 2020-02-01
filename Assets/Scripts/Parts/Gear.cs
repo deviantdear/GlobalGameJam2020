@@ -41,6 +41,15 @@ public class Gear : PoweredObject
         Powered = powered;
     }
 
+    private void OnEnable()
+    {
+        if (source != null)
+        {
+            //Make sure the gear is on/off based on source.
+            Powered = source.Powered;
+        }
+    }
+
     protected override void OnPowered(bool value)
     {
         rotator.On = powered;
