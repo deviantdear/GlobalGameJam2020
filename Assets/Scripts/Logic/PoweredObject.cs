@@ -17,6 +17,10 @@ public class PoweredObject : MonoBehaviour
         get { return powered; }
         set
         {
+            //Don't turn on if the power object is inactive.
+            if (!gameObject.activeSelf && value)
+                return;
+
             powered = value;
             onPowered?.Invoke(powered);
             OnPowered(powered);
@@ -25,5 +29,11 @@ public class PoweredObject : MonoBehaviour
 
     protected virtual void OnPowered(bool value)
     {
+    }
+
+    public virtual void OnDisable()
+    {
+        //Turn off the power
+        Powered = false;
     }
 }
