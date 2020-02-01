@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b881dd126474b746a53c2a08d399523, type: 3}
-  m_Name: New Projectile
+  m_Name: Gear
   m_EditorClassIdentifier: 
-  name: New Projectile
+  name: Gear
   icon: {fileID: 0}
-  isDefaultProjectile: 0
+  isDefaultProjectile: 1
