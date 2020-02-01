@@ -21,6 +21,11 @@ public class BeamProjectile : BaseProjectile
 
     public override void FireProjectile(GameObject launcher, GameObject target, int damage)
     {
+        FireProjectile(launcher, target.transform.position, damage);
+    }
+
+    public override void FireProjectile(GameObject launcher, Vector3 direction, int damage)
+    {
         if (launcher)
         {
             m_launcher = launcher;

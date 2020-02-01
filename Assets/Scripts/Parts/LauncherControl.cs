@@ -6,12 +6,13 @@ using UnityEngine.Events;
 /// <summary>
 /// Launcher controller
 /// </summary>
-public class Launcher : MonoBehaviour
+public class LauncherControl : MonoBehaviour
 {
     /// <summary>
     /// Set this to load the projectile
     /// </summary>
-    public Projectile Projectile { get; set; }
+    public Projectile AmmoLoaded  { get=>_ammoLoaded; set => Reload(value); }
+    Projectile _ammoLoaded;
 
     [Header("Controls")]
     [SerializeField] RotationControl upRotationControl;
@@ -19,10 +20,8 @@ public class Launcher : MonoBehaviour
 
     [Header("Parts")]
     [SerializeField] Transform tilt; // Object that tilts
-    [SerializeField] Transform projectileSpawn; // Point at which the projectiles are launched, world direction is used for launch vector.
 
     [Header("Settings")]
-    [SerializeField] float force = 1f; // Force that is imparted on the projectile
     [SerializeField] float loadingTime = 1f; // Time it takes to load launcher with a new projectile
     [SerializeField] float unloadingTime = 1f; // Time to remove a loaded projectile
     [SerializeField] float firingTime = 1f; // Time to fire a projectile
@@ -40,7 +39,7 @@ public class Launcher : MonoBehaviour
     public UnityEvent onCooldownStart;
     public UnityEvent onCooldownEnd;
     public UnityEvent onFiringFailed;
-
+    #region state_managment
     public enum State
     {
         unarmed,
@@ -63,6 +62,10 @@ public class Launcher : MonoBehaviour
     private void Update()
     {
         tilt.Rotate(Vector3.right, upRotationControl.Rotation);
+    }
+
+    private void LateUpdate()
+    {
         switch (currentState)
         {
             case State.loading:
@@ -101,7 +104,7 @@ public class Launcher : MonoBehaviour
             triggerEvent.Invoke();
         }
     }
-
+    #endregion
     private void DoWhileLoading()
     {
         // Wait till end of loading time, then change state to loaded.
@@ -168,14 +171,15 @@ public class Launcher : MonoBehaviour
     /// <summary>
     /// Reloads the launcher
     /// </summary>
-    public void Reload()
+    public void Reload(Projectile newProjectile)
     {
-        // If the cannon isn't loaded, no need to unload
+        // 
         if (currentState != State.unarmed || currentState != State.loaded)
         {
             return;
         }
-        ChangeState(State.loaded);
+        _ammoLoaded = newProjectile;
+        ChangeState(State.loading);
         onLoading.Invoke();
     }
 
