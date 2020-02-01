@@ -1,11 +1,17 @@
 ﻿using UnityEngine;
 
-public class Gear : PoweredObject
+public class Gear : PoweredObject, IBreakable
 {
+    /// <summary>
+    /// The animation id for the break trigger.
+    /// </summary>
+    private int breakTriggerId = -1;
     private Rotator rotator = null;
 
     [SerializeField]
     private Gear source = null;
+    [SerializeField]
+    private GameObject brokenGear = null;
 
     private void OnValidate()
     {
@@ -73,4 +79,21 @@ public class Gear : PoweredObject
         Powered = powered;
     }
 
+    /// <summary>
+    /// Turns off the gear and spawns a broken gear in place of it. 
+    /// </summary>
+    public void Break()
+    {
+        if (gameObject.activeSelf)
+        {
+            //Turn off the gear
+            gameObject.SetActive(false);
+
+            if (brokenGear != null)
+            {
+                //Spawn a broken version
+                Instantiate(brokenGear, transform.position, transform.rotation);
+            }
+        }
+    }
 }
