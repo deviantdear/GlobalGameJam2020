@@ -52,9 +52,9 @@ MonoBehaviour:
   triggerControl: {fileID: 3551554276189179744}
   reloadControl: {fileID: 3551554276189179744}
   tilt: {fileID: 3551554276713485177}
-  loadingTime: 1
-  unloadingTime: 1
-  firingTime: 1
+  loadingTime: 0.5
+  unloadingTime: 0.5
+  firingTime: 0.1
   cooldownTime: 1
   onLoading:
     m_PersistentCalls:
@@ -120,7 +120,6 @@ MonoBehaviour:
   projectileSpawns:
   - {fileID: 3551554277187808398}
   projectile: {fileID: 11400000, guid: 66d900b120d8a1c49ad3f7dd54e790d8, type: 2}
-  direction: {x: 0, y: 0, z: 1}
   launcherControl: {fileID: 3551554276189179745}
 --- !u!114 &1338801411
 MonoBehaviour:
@@ -548,7 +547,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3551554277327315379}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5000001
   m_Height: 2
   m_Direction: 1
