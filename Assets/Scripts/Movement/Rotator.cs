@@ -8,6 +8,8 @@ public class Rotator : MonoBehaviour
     [SerializeField]
     private float rotationSpeed = 10;
 
+    public bool On { get => on; set => on = value; }
+
     // Update is called once per frame
     void Update()
     {
