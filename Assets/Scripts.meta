@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: d7c610ca92f6eed469e64a94e55b3c45
+=======
 guid: 520ecbbac5d9ba847bdf67419523eba5
+>>>>>>> origin/feature/inventory_scripts
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
