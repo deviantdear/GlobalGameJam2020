@@ -26,6 +26,12 @@ public class Gear : PoweredObject
         }
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position + Vector3.forward/2, source.transform.position + Vector3.forward/2);
+    }
+
     private void OnDestroy()
     {
         //Unhook events
