@@ -1,30 +1,11 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Gear : MonoBehaviour
+public class Gear : PoweredObject
 {
     private Rotator rotator = null;
 
     [SerializeField]
     private Gear source = null;
-    [SerializeField]
-    private bool powered = false;
-
-    public Action<bool> onPowered = null;
-
-    /// <summary>
-    /// Whether or not the gear is turned on. 
-    /// </summary>
-    private bool Powered
-    {
-        get { return powered; }
-        set
-        {
-            powered = value;
-            rotator.On = value;
-            onPowered?.Invoke(powered);
-        }
-    }
 
     private void OnValidate()
     {
@@ -45,10 +26,24 @@ public class Gear : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        //Unhook events
+        if (source != null)
+        {
+            source.onPowered -= OnSourcePowered;
+        }
+    }
+
     private void Start()
     {
         //Initialize gear with initial values - start rotating if powered
         Powered = powered;
+    }
+
+    protected override void OnPowered(bool value)
+    {
+        rotator.On = powered;
     }
 
     /// <summary>
