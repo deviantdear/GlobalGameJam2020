@@ -11,12 +11,13 @@ public class LauncherControl : MonoBehaviour
     /// <summary>
     /// Set this to load the projectile
     /// </summary>
-    public Projectile AmmoLoaded  { get=>_ammoLoaded; set => Reload(value); }
-    Projectile _ammoLoaded;
+    public Projectile AmmoLoaded { get => _ammoLoaded; set => Reload(value); }
+    [SerializeField] Projectile _ammoLoaded;
 
     [Header("Controls")]
     [SerializeField] RotationControl upRotationControl;
     [SerializeField] ButtonControl triggerControl;
+    [SerializeField] ButtonControl reloadControl;
 
     [Header("Parts")]
     [SerializeField] Transform tilt; // Object that tilts
@@ -33,13 +34,15 @@ public class LauncherControl : MonoBehaviour
 
     public UnityEvent onUnloading;
     public UnityEvent onUnloaded;
-    
+
     public UnityEvent onFire;
 
     public UnityEvent onCooldownStart;
     public UnityEvent onCooldownEnd;
     public UnityEvent onFiringFailed;
     #region state_managment
+
+    [System.Serializable]
     public enum State
     {
         unarmed,
@@ -50,13 +53,14 @@ public class LauncherControl : MonoBehaviour
         cooldown
     }
 
-    State currentState = State.unarmed;
+    [SerializeField] State currentState = State.unarmed;
     float stateBegun = 0f;
     public State CurrentState { get => currentState; }
 
     private void Start()
     {
         triggerControl.onButtonDown.AddListener(Trigger);
+        reloadControl.onButtonUp.AddListener(()=>Reload());
     }
 
     private void Update()
@@ -100,6 +104,7 @@ public class LauncherControl : MonoBehaviour
         // Wait till end of loading time, then change state to loaded.
         if (stateBegun + prevStateLength < Time.time)
         {
+            Debug.Log($" Was {currentState} Changing state to {nextState}");
             ChangeState(nextState);
             triggerEvent.Invoke();
         }
@@ -150,6 +155,7 @@ public class LauncherControl : MonoBehaviour
             onFiringFailed.Invoke();
             return;
         }
+        Debug.Log("Firing");
         ChangeState(State.firing);
         onFire.Invoke();
     }
@@ -164,6 +170,7 @@ public class LauncherControl : MonoBehaviour
         {
             return;
         }
+        Debug.Log("Unloading");
         ChangeState(State.unloading);
         onUnloading.Invoke();
     }
@@ -171,14 +178,16 @@ public class LauncherControl : MonoBehaviour
     /// <summary>
     /// Reloads the launcher
     /// </summary>
-    public void Reload(Projectile newProjectile)
+    public void Reload(Projectile newProjectile = null)
     {
         // 
-        if (currentState != State.unarmed || currentState != State.loaded)
+        if (currentState != State.unarmed)
         {
             return;
         }
-        _ammoLoaded = newProjectile;
+        Debug.Log("Reloading");
+        if (newProjectile)
+            _ammoLoaded = newProjectile;
         ChangeState(State.loading);
         onLoading.Invoke();
     }

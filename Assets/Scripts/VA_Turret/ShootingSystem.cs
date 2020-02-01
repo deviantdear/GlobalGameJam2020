@@ -9,7 +9,6 @@ public class ShootingSystem : MonoBehaviour
     public int damage;
     public List<GameObject> projectileSpawns;
     public Projectile projectile;
-    public Vector3 direction;
     List<GameObject> m_lastProjectile = new List<GameObject>();
 
     [SerializeField] LauncherControl launcherControl;
@@ -52,7 +51,7 @@ public class ShootingSystem : MonoBehaviour
             if (projectileSpawns[i])
             {
                 GameObject proj = Instantiate(projectile.Use(), projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
-                proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], direction, damage);
+                proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], projectileSpawns[i].transform.forward, damage);
             }
         }
     }
