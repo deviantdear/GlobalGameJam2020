@@ -121,6 +121,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &144675756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9001332379607647967, guid: 9a9e74acc3033d24b852add7b7fc54f4,
+    type: 3}
+  m_PrefabInstance: {fileID: 9001332379463439731}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &144675757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 144675756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f838d91aca70d49825af3831ce3f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,5 +456,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cannonball
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9001332379607647965, guid: 9a9e74acc3033d24b852add7b7fc54f4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a9e74acc3033d24b852add7b7fc54f4, type: 3}
