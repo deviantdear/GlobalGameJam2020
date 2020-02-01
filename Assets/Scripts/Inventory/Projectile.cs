@@ -8,11 +8,12 @@ public class Projectile : ScriptableObject
     new public string name = "New Projectile";
     public Sprite icon = null;
     public bool isDefaultProjectile = false;
+    public int itemCount;
 
     public virtual void Use()
     {
         //uses item, something happens
-
+        itemCount--;
         Debug.Log("Using " + name);
     }
 

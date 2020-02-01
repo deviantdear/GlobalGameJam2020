@@ -1,12 +1,19 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventorySlot : MonoBehaviour
 {
     public Image icon;          // Reference to the Icon image
-
+    public TextMeshProUGUI itemCount;
     Projectile item;  // Current item in the slot
 
+
+    void Start()
+    {
+        if (item != null)
+            itemCount.SetText(item.itemCount.ToString());
+    }
     // Add item to the slot
     public void AddItem(Projectile newItem)
     {
@@ -29,9 +36,10 @@ public class InventorySlot : MonoBehaviour
     // Called when the item is pressed
     public void UseItem()
     {
-        if (item != null)
+        if (item != null && item.itemCount > 0)
         {
             item.Use();
+
         }
     }
 }
