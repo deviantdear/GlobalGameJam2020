@@ -23,6 +23,25 @@ public class RotationControl : MonoBehaviour
     /// </summary>
     public float Rotation { get => rotation; }
 
+    public float InputAxis { set { 
+        if (absoluteAxis)
+        {
+            rotation = value;
+            return;
+        }
+        rotation = value * speed * Time.deltaTime;
+        } 
+    }
+
+    public bool InputButton
+    {
+        set
+        {
+            rotation = 1 * speed * Time.deltaTime;
+        }
+    }
+
+
     /// <summary>
     /// Speed at which object is turned
     /// </summary>
@@ -37,12 +56,6 @@ public class RotationControl : MonoBehaviour
     // Gather the input
     void Update()
     {
-        float input = Input.GetAxis(inputName);
-        if (absoluteAxis)
-        {
-            rotation = input;
-            return;
-        }
-        rotation = input * speed * Time.deltaTime;
+        InputAxis = Input.GetAxis(inputName);
     }
 }
