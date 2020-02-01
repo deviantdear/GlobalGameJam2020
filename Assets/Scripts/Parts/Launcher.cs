@@ -39,17 +39,20 @@ public class Launcher : MonoBehaviour
 
     public UnityEvent onCooldownStart;
     public UnityEvent onCooldownEnd;
+    public UnityEvent onFiringFailed;
 
     public enum State
     {
         unarmed,
         loading,
+        unloading,
         loaded,
         firing,
         cooldown
     }
 
     State currentState = State.unarmed;
+    float stateBegun = 0f;
     public State CurrentState { get => currentState; }
 
     private void Start()
@@ -60,6 +63,77 @@ public class Launcher : MonoBehaviour
     private void Update()
     {
         tilt.Rotate(Vector3.right, upRotationControl.Rotation);
+        switch (currentState)
+        {
+            case State.loading:
+                DoWhileLoading();
+                break;
+            case State.unloading:
+                DoWhileUnloading();
+                break;
+            case State.firing:
+                DoWhileFiring();
+                break;
+            case State.cooldown:
+                DoWhileCooldown();
+                break;
+            case State.loaded:
+                DoWhileLoaded();
+                break;
+            default:
+                DoWhileUnloaded();
+                break;
+        }
+    }
+
+
+    private void DoWhileUnloaded()
+    {
+        // Do nothing, waiting to load ammo
+    }
+
+    private void NextState(float prevStateLength, State nextState, UnityEvent triggerEvent)
+    {
+        // Wait till end of loading time, then change state to loaded.
+        if (stateBegun + prevStateLength < Time.time)
+        {
+            ChangeState(nextState);
+            triggerEvent.Invoke();
+        }
+    }
+
+    private void DoWhileLoading()
+    {
+        // Wait till end of loading time, then change state to loaded.
+        NextState(loadingTime, State.loaded, onLoaded);
+
+    }
+
+    private void DoWhileUnloading()
+    {
+        // Wait till end of unloading time, and change state to unarmed.
+        NextState(unloadingTime, State.unarmed, onUnloaded);
+    }
+
+    private void DoWhileLoaded()
+    {
+        // Await trigger
+    }
+
+    private void DoWhileFiring()
+    {
+        NextState(firingTime, State.cooldown, onCooldownStart);
+    }
+
+    private void DoWhileCooldown()
+    {
+        NextState(cooldownTime, State.unarmed, onCooldownEnd);
+    }
+
+    private void ChangeState(State newState)
+    {
+        currentState = newState;
+        stateBegun = Time.time;
     }
 
     /// <summary>
@@ -67,7 +141,14 @@ public class Launcher : MonoBehaviour
     /// </summary>
     public void Trigger()
     {
-
+        // If the cannon isn't loaded, then you can't shoot.
+        if (currentState != State.loaded) 
+        {
+            onFiringFailed.Invoke();
+            return;
+        }
+        ChangeState(State.firing);
+        onFire.Invoke();
     }
 
     /// <summary>
@@ -75,7 +156,13 @@ public class Launcher : MonoBehaviour
     /// </summary>
     public void Unload()
     {
-        
+        // If the cannon isn't loaded, no need to unload
+        if (currentState != State.loaded)
+        {
+            return;
+        }
+        ChangeState(State.unloading);
+        onUnloading.Invoke();
     }
 
     /// <summary>
@@ -83,15 +170,13 @@ public class Launcher : MonoBehaviour
     /// </summary>
     public void Reload()
     {
-
-    }
-
-    /// <summary>
-    /// Cancels the launcher
-    /// </summary>
-    public void Cancel()
-    {
-
+        // If the cannon isn't loaded, no need to unload
+        if (currentState != State.unarmed || currentState != State.loaded)
+        {
+            return;
+        }
+        ChangeState(State.loaded);
+        onLoading.Invoke();
     }
 
 }

@@ -600,7 +600,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2092b39d7683b74419b365b61b6fa0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputName: Cannon Trigger
+  inputName: Fire1
   onButtonDown:
     m_PersistentCalls:
       m_Calls: []
@@ -619,6 +619,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1826283074}
+  - component: {fileID: 1826283075}
   m_Layer: 0
   m_Name: Pan
   m_TagString: Untagged
@@ -643,6 +644,22 @@ Transform:
   m_Father: {fileID: 1338801411}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1826283075
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1826283073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3a9104f682f0e41893f3e7bb8b3985, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  absoluteAxis: 1
+  rotation: 0
+  speed: 1
+  inputName: Horizontal
 --- !u!1 &1863065883
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +708,7 @@ MonoBehaviour:
   absoluteAxis: 1
   rotation: 0
   speed: 1
-  inputName: Cannon Tilt
+  inputName: Vertical
 --- !u!1 &2054885399
 GameObject:
   m_ObjectHideFlags: 0
