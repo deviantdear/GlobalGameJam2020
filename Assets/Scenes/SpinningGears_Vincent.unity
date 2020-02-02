@@ -1813,15 +1813,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: PartCannon
       objectReference: {fileID: 0}
-    - target: {fileID: 3551554276713485176, guid: 634eecfdda99c324e95f4a2f02960246,
+    - target: {fileID: 3551554276777012262, guid: 634eecfdda99c324e95f4a2f02960246,
         type: 3}
-      propertyPath: speed
-      value: 20
+      propertyPath: min
+      value: -45
       objectReference: {fileID: 0}
     - target: {fileID: 3551554276777012262, guid: 634eecfdda99c324e95f4a2f02960246,
         type: 3}
-      propertyPath: speed
-      value: 20
+      propertyPath: max
+      value: 45
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 634eecfdda99c324e95f4a2f02960246, type: 3}
@@ -5608,6 +5608,11 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1985187776}
+    - target: {fileID: 7459674296133928125, guid: a271cf4f409fc9b4e8df6ce6786924f5,
+        type: 3}
+      propertyPath: on
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7459674296133928126, guid: a271cf4f409fc9b4e8df6ce6786924f5,
         type: 3}
       propertyPath: m_Mesh

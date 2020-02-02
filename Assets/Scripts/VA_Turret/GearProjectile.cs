@@ -9,7 +9,12 @@ public class GearProjectile : NormalProjectile
 
     internal void OnCollisionEnter(Collision collision)
     {
-        collision.gameObject.GetComponent<IInstallable>()?.Install(gearPrefab);
-        Destroy(gameObject, destroyOnCollision);
+        IInstallable rod = collision.gameObject.GetComponent<IInstallable>();
+        if (rod != null)
+        {
+            rod.Install();
+            Destroy(gameObject);
+        } else
+            Destroy(gameObject, destroyOnCollision);
     }
 }
