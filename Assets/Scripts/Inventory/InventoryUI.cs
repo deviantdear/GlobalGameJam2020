@@ -63,7 +63,7 @@ public class InventoryUI : MonoBehaviour
             if(i < inventory.items.Count)
             {
                 slots[i].AddItem(inventory.items[i]);
-                slots[currentIndex].UpdateState(i == currentIndex);
+                slots[i].UpdateState(i == currentIndex);
             }
             else
             {

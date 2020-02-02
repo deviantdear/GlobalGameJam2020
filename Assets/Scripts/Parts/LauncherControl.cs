@@ -12,6 +12,7 @@ public class LauncherControl : MonoBehaviour
     /// Set this to load the projectile
     /// </summary>
     public Projectile AmmoLoaded { get => _ammoLoaded; set => Reload(value); }
+    [SerializeField] Material AmmoIndicator;
     [SerializeField] Projectile _ammoLoaded;
 
     [Header("Controls")]
@@ -159,7 +160,10 @@ public class LauncherControl : MonoBehaviour
     public void Reload(Projectile newProjectile = null)
     {
         if (newProjectile)
+        {
             _ammoLoaded = newProjectile;
+            AmmoIndicator.color = newProjectile.iconColor;
+        }
         ChangeState(State.loading);
         onLoading.Invoke();
     }
