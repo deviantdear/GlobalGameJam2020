@@ -6685,5 +6685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
+  radius: 0.5
   source: {fileID: 0}
-  brokenGear: {fileID: 0}
+  brokenGear: {fileID: 6735792292222986430, guid: f14cf3b85481e1c4d97028889562487c,
+    type: 3}
