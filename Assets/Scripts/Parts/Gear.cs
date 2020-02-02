@@ -2,20 +2,22 @@
 
 public class Gear : PoweredObject, IBreakable
 {
-    /// <summary>
-    /// The animation id for the break trigger.
-    /// </summary>
-    private int breakTriggerId = -1;
+    private bool initialized = false;
     private Rotator rotator = null;
 
+    [SerializeField]
+    private float radius = 0.5f;
     [SerializeField]
     private Gear source = null;
     [SerializeField]
     private GameObject brokenGear = null;
 
+    public float Radius => radius;
+    public float Speed => rotator.Speed;
+
     private void OnValidate()
     {
-        rotator = GetComponent<Rotator>();
+        rotator = GetComponentInChildren<Rotator>(true);
         Powered = powered;
     }
 
@@ -23,13 +25,15 @@ public class Gear : PoweredObject, IBreakable
     void Awake()
     {
         //Get Components
-        rotator = GetComponent<Rotator>();
+        rotator = GetComponentInChildren<Rotator>(true);
 
         //Hook up events
         if (source != null)
         {
             source.onPowered += OnSourcePowered;
         }
+
+        initialized = true;
     }
 
     private void OnDrawGizmos()
@@ -68,6 +72,13 @@ public class Gear : PoweredObject, IBreakable
     protected override void OnPowered(bool value)
     {
         rotator.On = powered;
+
+        //Update speed based on source.
+        if (source != null && source.initialized)
+        {
+            float multiplier = source.radius / radius;
+            rotator.Speed = -source.Speed * multiplier;
+        }
     }
 
     /// <summary>

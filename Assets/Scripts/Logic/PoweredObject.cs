@@ -22,8 +22,8 @@ public class PoweredObject : MonoBehaviour
                 return;
 
             powered = value;
-            onPowered?.Invoke(powered);
             OnPowered(powered);
+            onPowered?.Invoke(powered);
         }
     }
 

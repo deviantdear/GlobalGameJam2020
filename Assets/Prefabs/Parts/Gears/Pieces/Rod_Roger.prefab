@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 6359757761052075758}
   - component: {fileID: 7109967015010599678}
   m_Layer: 0
-  m_Name: Rod
+  m_Name: Rod_Roger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
