@@ -16,4 +16,4 @@ MonoBehaviour:
   icon: {fileID: 0}
   isDefaultProjectile: 0
   itemCount: 999
-  prefab: {fileID: 0}
+  prefab: {fileID: 9001332379607647967, guid: 0c64429afc727274bb98fc70d428398c, type: 3}

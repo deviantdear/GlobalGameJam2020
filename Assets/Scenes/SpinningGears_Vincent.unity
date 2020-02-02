@@ -1822,6 +1822,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3551554276189179745, guid: 634eecfdda99c324e95f4a2f02960246,
+        type: 3}
+      propertyPath: _ammoLoaded
+      value: 
+      objectReference: {fileID: 11400000, guid: 52e7c315fed29ef4ca3c292934a3410f,
+        type: 2}
     - target: {fileID: 3551554276189179750, guid: 634eecfdda99c324e95f4a2f02960246,
         type: 3}
       propertyPath: m_LocalPosition.x
