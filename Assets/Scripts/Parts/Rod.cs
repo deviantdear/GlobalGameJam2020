@@ -6,13 +6,13 @@ public class Rod : MonoBehaviour, IInstallable
 {
     [SerializeField] Gear gear;
     [SerializeField] Transform container;
-    public void Install(Gear newGear)
+    public bool Install(Gear newGear)
     {
-        if (newGear)
+        if (newGear.Radius == gear.Radius)
         {
-            Destroy(gear);
-            gear = Instantiate(newGear, container);
+            gear.gameObject.SetActive(true);
+            return true;
         }
-        gear.gameObject.SetActive(true);
+        return false
     }
 }
