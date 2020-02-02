@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8503983036033135637}
   - component: {fileID: 4680489546818727761}
   m_Layer: 0
-  m_Name: Medium Replacement Gear
+  m_Name: Medium Replacement Gear Ammo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcac034dede2a6439257e4793653b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 40
   destroyOnCollision: 2
   gearPrefab: {fileID: 2001577222098362541, guid: cef04a01d31ea6344a1ef44b943a44e8,
     type: 3}
