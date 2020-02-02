@@ -11,8 +11,10 @@ public class GearTrigger : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
-        //Toggle the state of the gear.
-        gear.gameObject.SetActive(!gear.gameObject.activeSelf);
+        if (gear.gameObject.activeSelf)
+            gear.Break();
+        else
+            gear.gameObject.SetActive(true);
     }
 
 }

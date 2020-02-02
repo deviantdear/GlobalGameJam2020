@@ -9,6 +9,7 @@ public class Rotator : MonoBehaviour
     private float rotationSpeed = 10;
 
     public bool On { get => on; set => on = value; }
+    public float Speed { get => rotationSpeed; set => rotationSpeed = value; }
 
     // Update is called once per frame
     void Update()

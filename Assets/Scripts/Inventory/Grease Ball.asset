@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b881dd126474b746a53c2a08d399523, type: 3}
+  m_Name: Grease Ball
+  m_EditorClassIdentifier: 
+  name: Grease Ball
+  icon: {fileID: 0}
+  isDefaultProjectile: 0
+  itemCount: 999
+  prefab: {fileID: 9001332379607647967, guid: 0c64429afc727274bb98fc70d428398c, type: 3}

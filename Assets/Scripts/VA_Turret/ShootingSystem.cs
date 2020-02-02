@@ -4,57 +4,40 @@ using UnityEngine;
 
 public class ShootingSystem : MonoBehaviour
 {
-    public float fireRate;
-    public float fieldOfview;
+    
     public bool beam;
     public int damage;
     public List<GameObject> projectileSpawns;
-    public GameObject projectile;
-    public GameObject target;
+    public Projectile projectile;
     List<GameObject> m_lastProjectile = new List<GameObject>();
-    float m_fireTimer = 0.0f;
 
-    void Update()
+    [SerializeField] LauncherControl launcherControl;
+
+    void Start()
     {
+        // Trigger shooting system on launcher events
+        launcherControl = GetComponent<LauncherControl>();
+        launcherControl.onFire.AddListener(SpawnProjectiles);
+        launcherControl.onLoaded.AddListener(LoadProjectile);
+        launcherControl.onUnloaded.AddListener(UnloadProjectile);
+    }
 
-        //Originally designed to shoot automatically we can add different player-controlled logic 
-        //if(beam && m_lastProjectile.Count <= 0){
-        //    float angle = getAngle();
 
-        //    if (angle < fieldOfview)
-        //        SpawnProjectiles();
-        //}
-        //else if(beam && m_lastProjectile.Count > 0)
-        //{
-        //    float angle = getAngle();
+    void UnloadProjectile()
+    {
+        // Clear ref to projectile
+        projectile = null;
+    }
 
-        //    if(angle > fieldOfview)
-        //    {
-        //        while(m_lastProjectile.Count > 0)
-        //        {
-        //            Destroy(m_lastProjectile[0]);
-        //            m_lastProjectile.RemoveAt(0);
-        //        }
-        //    }
-        //}
-        //else
-        //{
-        //    m_fireTimer += Time.deltaTime;
-        //    if(m_fireTimer >= fireRate)
-        //    {
-        //        float angle = getAngle();
-        //        if (angle < fieldOfview)
-        //        {
-        //            SpawnProjectiles();
-        //            m_fireTimer = 0.0f;
-        //        }
-                
-        //    }
-        //}
+    void LoadProjectile()
+    {
+        // Set projectile ref from launcher controll
+        projectile = launcherControl.AmmoLoaded;
     }
 
     void SpawnProjectiles()
     {
+
         if (!projectile)
         {
             return;
@@ -67,16 +50,11 @@ public class ShootingSystem : MonoBehaviour
         {
             if (projectileSpawns[i])
             {
-                GameObject proj = Instantiate(projectile, projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
-                proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i],target, damage);
+                GameObject proj = Instantiate(projectile.Use(), projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
+                proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], projectileSpawns[i].transform.forward, damage);
             }
         }
     }
 
-    float getAngle()
-    {
-        float angle = Quaternion.Angle(transform.rotation, Quaternion.LookRotation(target.transform.position - transform.position));
-
-        return angle;
-    }
+    
 }

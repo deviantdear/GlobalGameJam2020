@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class ConveyorBelt : PoweredObject
 {
@@ -8,22 +9,28 @@ public class ConveyorBelt : PoweredObject
     [SerializeField]
     private GameObject triggerObject = null;
     /// <summary>
-    /// The final gear that powers the conveyor belt.
+    /// The final gear(s) that powers the conveyor belt.
     /// </summary>
     [SerializeField]
-    private Gear targetGear = null;
+    private List<Gear> targetGears = null;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Hook up events
-        targetGear.onPowered += OnTargetGearPowered;
+        for (int i = 0; i < targetGears.Count; i++)
+        {
+            //Hook up events
+            targetGears[i].onPowered += OnTargetGearPowered;
+        }
     }
 
     private void OnDestroy()
     {
-        //Unhook events
-        targetGear.onPowered -= OnTargetGearPowered;
+        for (int i = 0; i < targetGears.Count; i++)
+        {
+            //Hook up events
+            targetGears[i].onPowered -= OnTargetGearPowered;
+        }
     }
 
     /// <summary>
@@ -36,11 +43,22 @@ public class ConveyorBelt : PoweredObject
     }
 
     /// <summary>
-    /// Listen to the target gear and turn on/off.
+    /// Listen to the target gears and turn on/off.
     /// </summary>
     /// <param name="powered"></param>
     private void OnTargetGearPowered(bool powered)
     {
-        Powered = powered;
+        bool allPowered = true;
+        for (int i = 0; i < targetGears.Count; i++)
+        {
+            //If one gear is powered off then stop checking
+            if (!targetGears[i].Powered)
+            {
+                allPowered = false;
+                break;
+            }
+        }
+
+        Powered = allPowered;
     }
 }
