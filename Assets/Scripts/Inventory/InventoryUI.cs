@@ -6,7 +6,10 @@ public class InventoryUI : MonoBehaviour
 
     Inventory inventory;
 
+    int currentIndex = 0;
+
     InventorySlot[] slots;
+    LauncherControl launcher;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +18,9 @@ public class InventoryUI : MonoBehaviour
         inventory.onItemChangedCallback += UpdateUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
+
+        launcher = FindObjectOfType<LauncherControl>();
+        UpdateUI();
     }
 
     // Update is called once per frame
@@ -22,6 +28,31 @@ public class InventoryUI : MonoBehaviour
     {
 
 
+    }
+
+    public void SelectNext()
+    {
+        slots[currentIndex].UpdateState(false);
+        currentIndex++;
+        if (currentIndex >= inventory.items.Count)
+            currentIndex = 0;
+        slots[currentIndex].UpdateState(true);
+        LoadAmmo();
+    }
+
+    public void SelectPrevious()
+    {
+        slots[currentIndex].UpdateState(false);
+        currentIndex--;
+        if (currentIndex < 0)
+            currentIndex += inventory.items.Count;
+        slots[currentIndex].UpdateState(true);
+        LoadAmmo();
+    }
+
+    void LoadAmmo()
+    {
+        launcher.AmmoLoaded = inventory.items[currentIndex];
     }
 
     void UpdateUI()

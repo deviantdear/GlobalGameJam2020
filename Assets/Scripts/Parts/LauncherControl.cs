@@ -164,30 +164,10 @@ public class LauncherControl : MonoBehaviour
     }
 
     /// <summary>
-    /// Unloads the launcher
-    /// </summary>
-    public void Unload()
-    {
-        // If the cannon isn't loaded, no need to unload
-        if (currentState != State.loaded)
-        {
-            return;
-        }
-        Debug.Log("Unloading");
-        ChangeState(State.unloading);
-        onUnloading.Invoke();
-    }
-
-    /// <summary>
     /// Reloads the launcher
     /// </summary>
     public void Reload(Projectile newProjectile = null)
     {
-        // 
-        if (currentState != State.unarmed)
-        {
-            return;
-        }
         Debug.Log("Reloading");
         if (newProjectile)
             _ammoLoaded = newProjectile;

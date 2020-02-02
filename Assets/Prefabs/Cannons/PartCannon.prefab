@@ -652,7 +652,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2092b39d7683b74419b365b61b6fa0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputName: Fire2
+  inputName: Button A
   onButtonDown:
     m_PersistentCalls:
       m_Calls: []
