@@ -49,13 +49,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ammoLoaded: {fileID: 11400000, guid: 66d900b120d8a1c49ad3f7dd54e790d8, type: 2}
   upRotationControl: {fileID: 3551554276713485176}
+  panRotationControl: {fileID: 0}
   triggerControl: {fileID: 3551554276189179744}
   reloadControl: {fileID: 3551554276189179744}
   tilt: {fileID: 3551554276713485177}
+  pan: {fileID: 3551554276777012263}
   loadingTime: 0.5
   unloadingTime: 0.5
   firingTime: 0.1
   cooldownTime: 1
+  currentState: 3
   onLoading:
     m_PersistentCalls:
       m_Calls: []
@@ -80,7 +83,6 @@ MonoBehaviour:
   onFiringFailed:
     m_PersistentCalls:
       m_Calls: []
-  currentState: 3
 --- !u!114 &3551554276189179744
 MonoBehaviour:
   m_ObjectHideFlags: 0

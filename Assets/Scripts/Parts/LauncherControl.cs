@@ -16,11 +16,13 @@ public class LauncherControl : MonoBehaviour
 
     [Header("Controls")]
     [SerializeField] RotationControl upRotationControl;
+    [SerializeField] RotationControl panRotationControl;
     [SerializeField] ButtonControl triggerControl;
     [SerializeField] ButtonControl reloadControl;
 
     [Header("Parts")]
     [SerializeField] Transform tilt; // Object that tilts
+    [SerializeField] Transform pan;
 
     [Header("Settings")]
     [SerializeField] float loadingTime = 1f; // Time it takes to load launcher with a new projectile
@@ -41,6 +43,17 @@ public class LauncherControl : MonoBehaviour
     public UnityEvent onCooldownStart;
     public UnityEvent onCooldownEnd;
     public UnityEvent onFiringFailed;
+    private void Start()
+    {
+        triggerControl.onButtonDown.AddListener(Trigger);
+        reloadControl.onButtonUp.AddListener(()=>Reload());
+    }
+
+    private void Update()
+    {
+        tilt.Rotate(Vector3.right, upRotationControl.Rotation);
+        pan.Rotate(Vector3.up, panRotationControl.Rotation);
+    }
     #region state_managment
 
     [System.Serializable]
@@ -57,16 +70,6 @@ public class LauncherControl : MonoBehaviour
     float stateBegun = 0f;
     public State CurrentState { get => currentState; }
 
-    private void Start()
-    {
-        triggerControl.onButtonDown.AddListener(Trigger);
-        reloadControl.onButtonUp.AddListener(()=>Reload());
-    }
-
-    private void Update()
-    {
-        tilt.Rotate(Vector3.right, upRotationControl.Rotation);
-    }
 
     private void LateUpdate()
     {
