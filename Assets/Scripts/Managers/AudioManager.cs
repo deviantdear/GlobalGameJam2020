@@ -64,6 +64,8 @@ public class AudioManager : MonoBehaviour
     public void PlayMusicWithFade(AudioClip newClip, float transitionTime = 1.0f)
     {
         AudioSource activeSource = (firstMusicSourceIsPlaying) ? musicSource : ambientSource;
+
+        StartCoroutine(UpdateMusicWithFade(activeSource, newClip, transitionTime));
     }
 
     private IEnumerator UpdateMusicWithFade(AudioSource activeSource, AudioClip newClip, float transitionTime)
@@ -73,6 +75,7 @@ public class AudioManager : MonoBehaviour
             activeSource.Play();
         }
         float t = 0.0f;
+
         // Fade out
         for (t = 0; t < transitionTime; t += Time.deltaTime)
         {
@@ -80,7 +83,7 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        activeSource.Stop();
+        activeSource.Stop(); //stop source
         activeSource.clip = newClip;
         activeSource.Play();
     }
@@ -90,5 +93,35 @@ public class AudioManager : MonoBehaviour
         sfxSource.PlayOneShot(clip, volume);
     }
 
+
+    public void PlayMusicWithCrossfade(AudioClip musicClip, AudioClip newClip, float transitionTime = 1.0f)
+    {
+        AudioSource activeSource = (firstMusicSourceIsPlaying) ? musicSource : ambientSource;
+        AudioSource newSource = (firstMusicSourceIsPlaying) ? ambientSource : musicSource;
+
+        //Swap the source
+        firstMusicSourceIsPlaying = !firstMusicSourceIsPlaying;
+
+        //set the values of the audio source, then coroutine and crossfade
+        newSource.clip = musicClip;
+        newSource.Play();
+        StartCoroutine(UpdateMusicWithCrossFade(activeSource, newSource, transitionTime));
+
+    }
+
+    private IEnumerator UpdateMusicWithCrossFade(AudioSource original, AudioSource newSource, float transitionTime)
+    {
+
+        float t = 0.0f;
+
+        for(t= 0.0f; t <= transitionTime; t+= Time.deltaTime)
+        {
+            original.volume = (1 - (t / transitionTime));
+            newSource.volume = (t / transitionTime);
+             yield return null;
+        }
+
+        original.Stop();
+    }
 
 }
