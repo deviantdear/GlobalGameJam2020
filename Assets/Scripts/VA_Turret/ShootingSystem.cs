@@ -38,7 +38,7 @@ public class ShootingSystem : MonoBehaviour
     void SpawnProjectiles()
     {
 
-        if (!projectile)
+        if (!projectile || !projectile.Use())
         {
             return;
         }
@@ -50,7 +50,7 @@ public class ShootingSystem : MonoBehaviour
         {
             if (projectileSpawns[i])
             {
-                GameObject proj = Instantiate(projectile.Use(), projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
+                GameObject proj = Instantiate(projectile.prefab, projectileSpawns[i].transform.position, Quaternion.Euler(projectileSpawns[i].transform.forward)) as GameObject;
                 proj.GetComponent<BaseProjectile>().FireProjectile(projectileSpawns[i], projectileSpawns[i].transform.forward, damage);
             }
         }

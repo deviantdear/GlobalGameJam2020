@@ -12,6 +12,7 @@ public class LauncherControl : MonoBehaviour
     /// Set this to load the projectile
     /// </summary>
     public Projectile AmmoLoaded { get => _ammoLoaded; set => Reload(value); }
+    [SerializeField] Material AmmoIndicator;
     [SerializeField] Projectile _ammoLoaded;
 
     [Header("Controls")]
@@ -20,9 +21,6 @@ public class LauncherControl : MonoBehaviour
     [SerializeField] ButtonControl triggerControl;
     [SerializeField] ButtonControl reloadControl;
 
-    [Header("Parts")]
-    [SerializeField] Transform tilt; // Object that tilts
-    [SerializeField] Transform pan;
 
     [Header("Settings")]
     [SerializeField] float loadingTime = 1f; // Time it takes to load launcher with a new projectile
@@ -49,11 +47,6 @@ public class LauncherControl : MonoBehaviour
         reloadControl.onButtonUp.AddListener(()=>Reload());
     }
 
-    private void Update()
-    {
-        tilt.Rotate(Vector3.right, upRotationControl.Rotation);
-        pan.Rotate(Vector3.up, panRotationControl.Rotation);
-    }
     #region state_managment
 
     [System.Serializable]
@@ -107,7 +100,6 @@ public class LauncherControl : MonoBehaviour
         // Wait till end of loading time, then change state to loaded.
         if (stateBegun + prevStateLength < Time.time)
         {
-            Debug.Log($" Was {currentState} Changing state to {nextState}");
             ChangeState(nextState);
             triggerEvent.Invoke();
         }
@@ -158,24 +150,8 @@ public class LauncherControl : MonoBehaviour
             onFiringFailed.Invoke();
             return;
         }
-        Debug.Log("Firing");
         ChangeState(State.firing);
         onFire.Invoke();
-    }
-
-    /// <summary>
-    /// Unloads the launcher
-    /// </summary>
-    public void Unload()
-    {
-        // If the cannon isn't loaded, no need to unload
-        if (currentState != State.loaded)
-        {
-            return;
-        }
-        Debug.Log("Unloading");
-        ChangeState(State.unloading);
-        onUnloading.Invoke();
     }
 
     /// <summary>
@@ -183,14 +159,11 @@ public class LauncherControl : MonoBehaviour
     /// </summary>
     public void Reload(Projectile newProjectile = null)
     {
-        // 
-        if (currentState != State.unarmed)
-        {
-            return;
-        }
-        Debug.Log("Reloading");
         if (newProjectile)
+        {
             _ammoLoaded = newProjectile;
+            AmmoIndicator.color = newProjectile.iconColor;
+        }
         ChangeState(State.loading);
         onLoading.Invoke();
     }

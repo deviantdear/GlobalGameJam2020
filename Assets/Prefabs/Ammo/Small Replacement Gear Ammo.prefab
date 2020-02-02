@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dcac034dede2a6439257e4793653b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 10
   destroyOnCollision: 2
   gearPrefab: {fileID: 7148341056788974197, guid: f5b31b88041f8d441bc14342c500fa9e,
     type: 3}
@@ -204,6 +204,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7148341056788974200, guid: f5b31b88041f8d441bc14342c500fa9e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7148341056788974201, guid: f5b31b88041f8d441bc14342c500fa9e,
         type: 3}

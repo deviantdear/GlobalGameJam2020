@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Grease Ball
   m_EditorClassIdentifier: 
   name: Grease Ball
-  icon: {fileID: 0}
+  icon: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   isDefaultProjectile: 0
   itemCount: 999
   prefab: {fileID: 9001332379607647967, guid: 0c64429afc727274bb98fc70d428398c, type: 3}
+  iconColor: {r: 0, g: 0, b: 0, a: 1}

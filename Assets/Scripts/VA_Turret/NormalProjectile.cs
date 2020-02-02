@@ -41,7 +41,6 @@ public class NormalProjectile : BaseProjectile
     void Travel()
     {
         Vector3 force = m_direction * speed;
-        Debug.Log($"Launching cannon with {force}");
         m_rigidbody.AddForce(force, ForceMode.Impulse);
     }
 }

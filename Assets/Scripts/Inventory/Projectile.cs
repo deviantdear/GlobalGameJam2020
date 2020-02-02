@@ -10,13 +10,16 @@ public class Projectile : ScriptableObject
     public bool isDefaultProjectile = false;
     public int itemCount;
     public GameObject prefab;
+    public Color iconColor;
 
-    public virtual GameObject Use()
+    public virtual bool Use()
     {
+        if (itemCount <= 0)
+            return false;
         //uses item, something happens
         itemCount--;
         Debug.Log("Using " + name);
-        return prefab;
+        return true;
     }
 
     public void RemoveFromInventory()

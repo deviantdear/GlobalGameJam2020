@@ -8,5 +8,5 @@ public interface IInstallable
     /// Installs the replacement gear
     /// </summary>
     /// <param name="replacementGear"></param>
-    void Install(Gear replacementGear);
+    void Install(Gear newGear);
 }
