@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b881dd126474b746a53c2a08d399523, type: 3}
   m_Name: Medium Gear
   m_EditorClassIdentifier: 
-  name: Gear
+  name: Medium Gear
   icon: {fileID: 0}
   isDefaultProjectile: 1
   itemCount: 999

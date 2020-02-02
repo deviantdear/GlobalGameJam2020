@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b881dd126474b746a53c2a08d399523, type: 3}
   m_Name: Small Gear
   m_EditorClassIdentifier: 
-  name: Gear
+  name: Small Gear
   icon: {fileID: 0}
   isDefaultProjectile: 1
   itemCount: 999
-  prefab: {fileID: 0}
+  prefab: {fileID: 6628121462429163210, guid: 965ad6cbfdbef3946ac16a158e23e2e1, type: 3}
