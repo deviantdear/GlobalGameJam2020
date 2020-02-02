@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 105065567986057517}
   - component: {fileID: 105065567986057687}
   - component: {fileID: 105065567986057512}
+  - component: {fileID: 1498263548608937105}
   m_Layer: 0
-  m_Name: LargeGear_Roger
+  m_Name: BrokenLargeGear_Vincent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6665,7 +6666,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105065567986057518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c88add264921e0f40bca90745887d671, type: 3}
   m_Name: 
@@ -6679,13 +6680,41 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105065567986057518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ffad96be8fdb0b3488dac0787baee7b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
   radius: 0.75
-  source: {fileID: 105065567986057512}
-  brokenGear: {fileID: 105065567986057518, guid: 0ac92ac7048ebf7469e883523fca63eb,
-    type: 3}
+  source: {fileID: 0}
+  brokenGear: {fileID: 0}
+--- !u!114 &1498263548608937105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105065567986057518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6707584bc688f334590f8a604bde0361, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructibleProperties:
+    MeshToExplode: {fileID: 105065567986057513}
+    destructByDamage: 0
+    autoDestruct: 1
+    autoDestructDelay: 0
+    health: 100
+  explosionSettings:
+    initPositionMin: {x: -0.5, y: 0, z: -0.5}
+    initPositionMax: {x: 0.5, y: 0.5, z: 0.5}
+    explosionRadius: 5
+    explosionMin: 300
+    explosionMax: 500
+  explodedSurfaces:
+    ShouldBeRemovedInTime: 1
+    DestroyInSeconds: 1
+    useLayerMask: 0
+    LayerName: 
