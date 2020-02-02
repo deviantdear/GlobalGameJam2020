@@ -5,8 +5,14 @@ using UnityEngine;
 public class Rod : MonoBehaviour, IInstallable
 {
     [SerializeField] Gear gear;
-    public void Install()
+    [SerializeField] Transform container;
+    public void Install(Gear newGear)
     {
+        if (newGear)
+        {
+            Destroy(gear);
+            gear = Instantiate(newGear, container);
+        }
         gear.gameObject.SetActive(true);
     }
 }

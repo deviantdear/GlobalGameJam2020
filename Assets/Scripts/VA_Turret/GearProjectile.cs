@@ -12,7 +12,7 @@ public class GearProjectile : NormalProjectile
         IInstallable rod = collision.gameObject.GetComponent<IInstallable>();
         if (rod != null)
         {
-            rod.Install();
+            rod.Install(null);
             Destroy(gameObject);
         } else
             Destroy(gameObject, destroyOnCollision);
