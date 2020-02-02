@@ -36,6 +36,16 @@ public class Gear : PoweredObject, IBreakable
         initialized = true;
     }
 
+    void Update()
+    {         
+        if (source != null)
+        {
+            //Update speed of the gear based on source
+            float multiplier = source.radius / radius;
+            rotator.Speed = -source.Speed * multiplier;
+        }
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.green;
@@ -72,13 +82,6 @@ public class Gear : PoweredObject, IBreakable
     protected override void OnPowered(bool value)
     {
         rotator.On = powered;
-
-        //Update speed based on source.
-        if (source != null && source.initialized)
-        {
-            float multiplier = source.radius / radius;
-            rotator.Speed = -source.Speed * multiplier;
-        }
     }
 
     /// <summary>
