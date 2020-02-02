@@ -9,12 +9,14 @@ public class Projectile : ScriptableObject
     public Sprite icon = null;
     public bool isDefaultProjectile = false;
     public int itemCount;
+    public GameObject prefab;
 
-    public virtual void Use()
+    public virtual GameObject Use()
     {
         //uses item, something happens
         itemCount--;
         Debug.Log("Using " + name);
+        return prefab;
     }
 
     public void RemoveFromInventory()

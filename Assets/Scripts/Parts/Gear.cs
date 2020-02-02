@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 
-public class Gear : PoweredObject
+public class Gear : PoweredObject, IBreakable
 {
+    private bool initialized = false;
     private Rotator rotator = null;
 
     [SerializeField]
+    private float radius = 0.5f;
+    [SerializeField]
     private Gear source = null;
+    [SerializeField]
+    private GameObject brokenGear = null;
+
+    public float Radius => radius;
+    public float Speed => rotator.Speed;
 
     private void OnValidate()
     {
-        rotator = GetComponent<Rotator>();
+        rotator = GetComponentInChildren<Rotator>(true);
         Powered = powered;
     }
 
@@ -17,12 +25,24 @@ public class Gear : PoweredObject
     void Awake()
     {
         //Get Components
-        rotator = GetComponent<Rotator>();
+        rotator = GetComponentInChildren<Rotator>(true);
 
         //Hook up events
         if (source != null)
         {
             source.onPowered += OnSourcePowered;
+        }
+
+        initialized = true;
+    }
+
+    void Update()
+    {         
+        if (source != null)
+        {
+            //Update speed of the gear based on source
+            float multiplier = source.radius / radius;
+            rotator.Speed = -source.Speed * multiplier;
         }
     }
 
@@ -73,4 +93,21 @@ public class Gear : PoweredObject
         Powered = powered;
     }
 
+    /// <summary>
+    /// Turns off the gear and spawns a broken gear in place of it. 
+    /// </summary>
+    public void Break()
+    {
+        if (gameObject.activeSelf)
+        {
+            //Turn off the gear
+            gameObject.SetActive(false);
+
+            if (brokenGear != null)
+            {
+                //Spawn a broken version
+                Instantiate(brokenGear, transform.position, transform.rotation);
+            }
+        }
+    }
 }
