@@ -126,7 +126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   destroyOnCollision: 2
-  gearPrefab: {fileID: 7148341056788974197, guid: f5b31b88041f8d441bc14342c500fa9e,
+  gearPrefab: {fileID: 105065567986057512, guid: 5fb9fd7dddd000e408b6687893eca59b,
     type: 3}
 --- !u!1001 &8831373530091284820
 PrefabInstance:

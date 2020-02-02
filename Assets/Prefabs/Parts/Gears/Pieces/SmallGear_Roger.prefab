@@ -2368,6 +2368,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powered: 0
+  radius: 0.25
   source: {fileID: 0}
   brokenGear: {fileID: 1587237361607289785, guid: a0fca7cdd43af704c978bc7ed76f5ee0,
     type: 3}

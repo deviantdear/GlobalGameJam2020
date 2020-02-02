@@ -29,7 +29,7 @@ public class InventorySlot : MonoBehaviour
         icon.sprite = item.icon;
         itemCount.text = item.itemCount.ToString();
         icon.enabled = true;
-        border.color = item.iconColor;
+        background.color = item.iconColor;
     }
 
     // Clear the slot
@@ -50,16 +50,16 @@ public class InventorySlot : MonoBehaviour
     public void UpdateBackground()
     {
 
-        border.color = item.iconColor;
+        background.color = item.iconColor;
         if (active)
         {
-            background.color = activeColor;
+            border.color = activeColor;
             return;
         }
 
         if (item.itemCount <= 0)
-            background.color = usedColor;
+            border.color = usedColor;
         else
-            background.color = normalColor;
+            border.color = normalColor;
     }
 }
