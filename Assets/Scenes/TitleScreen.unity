@@ -386,19 +386,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Valarie - Programmer/Manager
+  m_text: 'Valarie - Programmer, manager
 
-    Vincent Prime - Gameplay Programmer
+    Vincent Prime - Gameplay programmer
 
     Roger
-    Schoellgen - Gameplay Programmer
+    Schoellgen - Gameplay programmer
 
-    Liza Knipscher - Programmer/Designer
+    Liza Knipscher - Programmer, designer
 
     Danielle
-    VanBrabant - 3D Animator
+    VanBrabant - 3D modeler
 
-    Matthew Thompson - Programmer
+    Matthew Thompson - Programmer, level designer
 
 '
   m_isRightToLeft: 0
@@ -469,10 +469,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 834233441}
-    characterCount: 205
+    characterCount: 222
     spriteCount: 0
-    spaceCount: 26
-    wordCount: 28
+    spaceCount: 30
+    wordCount: 30
     linkCount: 0
     lineCount: 6
     pageCount: 1
@@ -512,12 +512,12 @@ GameObject:
   - component: {fileID: 834700003}
   - component: {fileID: 834700002}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: CreditsPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &834700001
 RectTransform:
   m_ObjectHideFlags: 0
