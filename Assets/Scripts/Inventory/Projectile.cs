@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 [CreateAssetMenu(fileName = "New Projectile", menuName = "Projectile")]
 public class Projectile : ScriptableObject
@@ -11,6 +12,7 @@ public class Projectile : ScriptableObject
     public int itemCount;
     public GameObject prefab;
     public Color iconColor;
+    public AudioClip soundEffect;
 
     public virtual bool Use()
     {
