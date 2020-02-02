@@ -21,6 +21,7 @@ public class InventoryUI : MonoBehaviour
 
         launcher = FindObjectOfType<LauncherControl>();
         UpdateUI();
+        LoadAmmo();
     }
 
     // Update is called once per frame
@@ -62,6 +63,7 @@ public class InventoryUI : MonoBehaviour
             if(i < inventory.items.Count)
             {
                 slots[i].AddItem(inventory.items[i]);
+                slots[currentIndex].UpdateState(i == currentIndex);
             }
             else
             {

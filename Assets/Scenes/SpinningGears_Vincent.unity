@@ -1753,15 +1753,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1338801411, guid: 634eecfdda99c324e95f4a2f02960246, type: 3}
-      propertyPath: inputName
-      value: Button B
-      objectReference: {fileID: 0}
-    - target: {fileID: 3551554276189179744, guid: 634eecfdda99c324e95f4a2f02960246,
-        type: 3}
-      propertyPath: inputName
-      value: Button A
-      objectReference: {fileID: 0}
     - target: {fileID: 3551554276189179750, guid: 634eecfdda99c324e95f4a2f02960246,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1821,6 +1812,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PartCannon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551554276713485176, guid: 634eecfdda99c324e95f4a2f02960246,
+        type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3551554276777012262, guid: 634eecfdda99c324e95f4a2f02960246,
+        type: 3}
+      propertyPath: speed
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 634eecfdda99c324e95f4a2f02960246, type: 3}

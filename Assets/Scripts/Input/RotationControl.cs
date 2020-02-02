@@ -17,6 +17,10 @@ public class RotationControl : MonoBehaviour
     /// Current rotation
     /// </summary>
     [SerializeField] float rotation = 0f;
+    [SerializeField] float min = -1f;
+    [SerializeField] float max = 1f;
+
+    [SerializeField] Vector3 rotationAxis = Vector3.forward;
 
     /// <summary>
     /// Current rotation
@@ -24,12 +28,11 @@ public class RotationControl : MonoBehaviour
     public float Rotation { get => rotation; }
 
     public float InputAxis { set { 
-        if (absoluteAxis)
-        {
-            rotation = value;
-            return;
-        }
-        rotation = value * speed * Time.deltaTime;
+            if (absoluteAxis)
+                rotation = Mathf.Clamp(value, min, max);
+            else
+                rotation = Mathf.Clamp(rotation + (value * speed * Time.deltaTime), min, max);
+            transform.localRotation = Quaternion.AngleAxis(rotation, rotationAxis);
         } 
     }
 
@@ -37,7 +40,7 @@ public class RotationControl : MonoBehaviour
     {
         set
         {
-            rotation = 1 * speed * Time.deltaTime;
+            rotation = Mathf.Clamp(1 * speed * Time.deltaTime, min, max);
         }
     }
 

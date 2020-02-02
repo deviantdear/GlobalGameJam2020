@@ -569,8 +569,6 @@ MonoBehaviour:
   panRotationControl: {fileID: 3551554276777012262}
   triggerControl: {fileID: 3551554276189179744}
   reloadControl: {fileID: 3551554276189179744}
-  tilt: {fileID: 3551554276713485177}
-  pan: {fileID: 3551554276777012263}
   loadingTime: 0.5
   unloadingTime: 0.5
   firingTime: 0.1
@@ -612,7 +610,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2092b39d7683b74419b365b61b6fa0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputName: Fire1
+  inputName: Button A
   onButtonDown:
     m_PersistentCalls:
       m_Calls: []
@@ -652,7 +650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2092b39d7683b74419b365b61b6fa0b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputName: Button A
+  inputName: Button B
   onButtonDown:
     m_PersistentCalls:
       m_Calls: []
@@ -707,9 +705,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3a9104f682f0e41893f3e7bb8b3985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  absoluteAxis: 1
+  absoluteAxis: 0
   rotation: 0
-  speed: 1
+  min: 0
+  max: 70
+  rotationAxis: {x: -1, y: 0, z: 0}
+  speed: 35
   inputName: Vertical
 --- !u!1 &3551554276777012260
 GameObject:
@@ -756,9 +757,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d3a9104f682f0e41893f3e7bb8b3985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  absoluteAxis: 1
+  absoluteAxis: 0
   rotation: 0
-  speed: 1
+  min: -20
+  max: 20
+  rotationAxis: {x: 0, y: 1, z: 0}
+  speed: 35
   inputName: Horizontal
 --- !u!1 &3551554277187808398
 GameObject:
