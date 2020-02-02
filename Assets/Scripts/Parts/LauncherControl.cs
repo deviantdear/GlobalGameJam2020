@@ -29,6 +29,7 @@ public class LauncherControl : MonoBehaviour
     [SerializeField] float cooldownTime = 1f; // Time to reset after firing
 
     [Header("Events")]
+    [SerializeField] State currentState = State.unarmed;
     public UnityEvent onLoading;
     public UnityEvent onLoaded;
 
@@ -53,7 +54,6 @@ public class LauncherControl : MonoBehaviour
         cooldown
     }
 
-    [SerializeField] State currentState = State.unarmed;
     float stateBegun = 0f;
     public State CurrentState { get => currentState; }
 

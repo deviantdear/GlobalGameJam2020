@@ -156,7 +156,7 @@ GameObject:
   - component: {fileID: 3551554276197094636}
   - component: {fileID: 3551554276197094637}
   m_Layer: 0
-  m_Name: Sphere
+  m_Name: Sphere Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -169,11 +169,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3551554276197094627}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.498, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.002000004, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3551554276777012263}
+  m_Father: {fileID: 3551554276713485177}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3551554276197094639
@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 3551554276535951999}
   - component: {fileID: 3551554276535951996}
   m_Layer: 0
-  m_Name: Box
+  m_Name: Box Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -267,7 +267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 3551554276777012263}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3551554276535951998
 MeshFilter:
@@ -357,10 +357,11 @@ Transform:
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 3551554276197094626}
   - {fileID: 3551554277327315378}
   - {fileID: 3551554277187808393}
   m_Father: {fileID: 3551554276777012263}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3551554276713485176
 MonoBehaviour:
@@ -406,7 +407,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3551554276197094626}
   - {fileID: 3551554276535951997}
   - {fileID: 3551554276713485177}
   m_Father: {fileID: 3551554276189179750}
@@ -456,7 +456,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3551554276713485177}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3551554277327315379
 GameObject:
@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 3551554277327315388}
   - component: {fileID: 3551554277327315389}
   m_Layer: 0
-  m_Name: Barrel
+  m_Name: Barrel Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -489,7 +489,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 1, z: 0.5}
   m_Children: []
   m_Father: {fileID: 3551554276713485177}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!33 &3551554277327315391
 MeshFilter:
