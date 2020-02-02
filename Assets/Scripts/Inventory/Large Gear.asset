@@ -18,3 +18,4 @@ MonoBehaviour:
   itemCount: 51
   prefab: {fileID: 6628121462429163210, guid: e9ee69e7b2331b740ad092ea02882807, type: 3}
   iconColor: {r: 0.754717, g: 0.6976463, b: 0, a: 1}
+  soundEffect: {fileID: 8300000, guid: 3813ae17c92ece443b12859bdea4c7c8, type: 3}
