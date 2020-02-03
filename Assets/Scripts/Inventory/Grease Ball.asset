@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Grease Ball
   icon: {fileID: 21300000, guid: f3b48314adc66474bb847ea072fc99f1, type: 3}
   isDefaultProjectile: 0
-  itemCount: 999
+  itemCount: 1000
   prefab: {fileID: 9001332379607647967, guid: 0c64429afc727274bb98fc70d428398c, type: 3}
   iconColor: {r: 0, g: 0, b: 0, a: 1}
+  soundEffect: {fileID: 0}

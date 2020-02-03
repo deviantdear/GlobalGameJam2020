@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Small Gear
   icon: {fileID: 21300000, guid: c7872594d40c95b449fddfe0c20b1353, type: 3}
   isDefaultProjectile: 0
-  itemCount: 944
+  itemCount: 931
   prefab: {fileID: 6628121462429163210, guid: 965ad6cbfdbef3946ac16a158e23e2e1, type: 3}
   iconColor: {r: 0.3962264, g: 0.21766573, b: 0.0093449615, a: 1}
   soundEffect: {fileID: 8300000, guid: 3813ae17c92ece443b12859bdea4c7c8, type: 3}
