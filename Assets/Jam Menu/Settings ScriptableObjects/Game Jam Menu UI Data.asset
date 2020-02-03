@@ -23,11 +23,11 @@ MonoBehaviour:
   imageColor: {r: 0, g: 0, b: 0, a: 0.4117647}
   sliderColorBlock:
     m_NormalColor: {r: 0.088554636, g: 0.09241129, b: 0.09433961, a: 1}
-    m_HighlightedColor: {r: 1, g: 0.8753348, b: 0.52156866, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.93195176, b: 0.740566, a: 1}
     m_PressedColor: {r: 0.7735849, g: 0.7690549, b: 0.762638, a: 1}
     m_SelectedColor: {r: 0.9339623, g: 0.730331, b: 0.2687344, a: 1}
     m_DisabledColor: {r: 0.74403703, g: 0.751157, b: 0.754717, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   font: {fileID: 12800000, guid: 3958e8738c919b54dad13719a0ac2db6, type: 3}
-  textColor: {r: 0.5849056, g: 0.49252665, b: 0.2896938, a: 1}
+  textColor: {r: 1, g: 0.8886163, b: 0.6367924, a: 1}
