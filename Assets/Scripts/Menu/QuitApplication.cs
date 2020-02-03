@@ -17,4 +17,9 @@ public class QuitApplication : MonoBehaviour {
 		UnityEditor.EditorApplication.isPlaying = false;
 	#endif
 	}
+
+	public void Restart()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+	}
 }
