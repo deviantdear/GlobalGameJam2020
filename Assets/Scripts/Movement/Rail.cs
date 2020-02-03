@@ -14,5 +14,6 @@ public class Rail : MonoBehaviour
     {
         public Transform left;
         public Transform right;
+        public Transform cameraAnchor;
     }
 }

@@ -1,11 +1,12 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Level.Mechanics
 {
     public class BoxGoal : MonoBehaviour
     {
-        public Action onBoxEntered = null;
+        public UnityEvent onBoxEntered = new UnityEvent();
 
         private void OnTriggerEnter(Collider other)
         {

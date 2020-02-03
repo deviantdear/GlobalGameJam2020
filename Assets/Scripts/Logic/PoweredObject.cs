@@ -22,7 +22,7 @@ public class PoweredObject : MonoBehaviour
                 return;
 
             powered = value;
-           // OnPowered(powered);
+            OnPowered(powered);
             onPowered?.Invoke(powered);
         }
     }

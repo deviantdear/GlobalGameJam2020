@@ -135,6 +135,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6628121462429163254}
     m_Modifications:
+    - target: {fileID: 105065567986057512, guid: 5fb9fd7dddd000e408b6687893eca59b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 105065567986057513, guid: 5fb9fd7dddd000e408b6687893eca59b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,6 +214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LargeGear_Roger
+      objectReference: {fileID: 0}
+    - target: {fileID: 105065567986057687, guid: 5fb9fd7dddd000e408b6687893eca59b,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fb9fd7dddd000e408b6687893eca59b, type: 3}

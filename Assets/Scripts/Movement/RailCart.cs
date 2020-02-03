@@ -9,6 +9,7 @@ using UnityEngine;
 public class RailCart : MonoBehaviour
 {
     [SerializeField] Rail currentRail;
+    [SerializeField] Camera currentCamera;
     [SerializeField] float speed = 1f;
     [SerializeField] int currentSection = 0;
 
@@ -35,6 +36,8 @@ public class RailCart : MonoBehaviour
 
         // Teleport to the left side of the frame
         transform.position = section.left.position;
+        currentCamera.transform.position = section.cameraAnchor.position;
+        currentCamera.transform.rotation = section.cameraAnchor.rotation;
     }
 
     void ReverseDirection()
