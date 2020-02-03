@@ -20,7 +20,6 @@ public class Rod : MonoBehaviour, IInstallable
     bool CompareGears(Gear left, Gear right)
     {
         bool ret = left.Radius - right.Radius < .1 && left.Radius - right.Radius > -.1;
-        Debug.Log($"Size L:{left.Radius} R:{right.Radius} {ret}");
         return ret;
     }
 }

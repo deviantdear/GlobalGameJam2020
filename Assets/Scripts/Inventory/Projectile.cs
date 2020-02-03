@@ -20,7 +20,6 @@ public class Projectile : ScriptableObject
             return false;
         //uses item, something happens
         itemCount--;
-        Debug.Log("Using " + name);
         return true;
     }
 
