@@ -1,6 +1,11 @@
-# GlobalGameJam2020
+# The Great Catsby
 Unity Game Development Project for Global Game Jam 2020!
-Using Unity Engine 2019.3.0f3 
-Clone the repo,
-Create a Feature branch off Develop,
-Once youhave tested and ready to push your changes create a pull request ^_^
+
+
+# Credits
+Valarie Adams- Programmer, manager
+Vincent Prime - Gameplay programmer
+Roger Schoellgen - Gameplay programmer
+Liza Knipscher - Programmer, designer
+Danielle VanBrabant - 3D modeler
+Matthew Thompson - Programmer, level designer
