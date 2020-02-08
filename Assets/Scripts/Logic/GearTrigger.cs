@@ -5,7 +5,7 @@ public class GearTrigger : MonoBehaviour
 
     [SerializeField]
     private Gear gear = null;
-
+#if DEBUG
     /// <summary>
     /// Temporary until we add the cannon / projectile logic.
     /// </summary>
@@ -16,5 +16,5 @@ public class GearTrigger : MonoBehaviour
         else
             gear.gameObject.SetActive(true);
     }
-
+#endif
 }
