@@ -5739,7 +5739,7 @@ Transform:
   m_GameObject: {fileID: 3551554276189179751}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2646898456815958707}
   - {fileID: 3551554276777012263}
@@ -5760,7 +5760,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AmmoIndicator: {fileID: 2100000, guid: ed7836a44c494294896e7cd952d56dea, type: 2}
-  _ammoLoaded: {fileID: 11400000, guid: 52e7c315fed29ef4ca3c292934a3410f, type: 2}
+  _ammoLoaded: {fileID: 11400000, guid: f51073d2282d03240bb1fefc3996a385, type: 2}
   upRotationControl: {fileID: 3551554276713485176}
   panRotationControl: {fileID: 3551554276777012262}
   triggerControl: {fileID: 3551554276189179744}
@@ -5920,7 +5920,7 @@ MonoBehaviour:
   damage: 10
   projectileSpawns:
   - {fileID: 3551554277187808398}
-  projectile: {fileID: 11400000, guid: 66d900b120d8a1c49ad3f7dd54e790d8, type: 2}
+  projectile: {fileID: 11400000, guid: f51073d2282d03240bb1fefc3996a385, type: 2}
   launcherControl: {fileID: 3551554276189179745}
 --- !u!114 &1338801411
 MonoBehaviour:
@@ -6041,15 +6041,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3551554276777012260}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d3a9104f682f0e41893f3e7bb8b3985, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   absoluteAxis: 0
   rotation: 0
-  min: -45
-  max: 45
+  min: -90
+  max: 90
   rotationAxis: {x: 0, y: 1, z: 0}
   speed: 35
   inputName: Horizontal
